@@ -1,6 +1,6 @@
-package hello.service;
+package example.service.company;
 
-import hello.model.Company;
+import example.domain.Company;
 
 public interface CompanyService {
 

@@ -1,11 +1,11 @@
-package hello.service;
-
-import hello.model.Company;
+package example.service.company;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import example.domain.Company;
 @Component("companyService")
 @Transactional
 public class CompanyServiceImpl implements CompanyService {

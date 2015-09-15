@@ -1,4 +1,4 @@
-package hello.model;
+package example.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

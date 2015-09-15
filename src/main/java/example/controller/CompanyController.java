@@ -1,7 +1,4 @@
-package hello.controller;
-
-import hello.model.Company;
-import hello.service.CompanyRepository;
+package example.controller;
 
 import java.util.List;
 
@@ -12,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import example.domain.Company;
+import example.service.company.CompanyRepository;
+
 @RestController
 @RequestMapping(value="/company")
 //@RequestMapping("/company")
@@ -20,7 +20,6 @@ public class CompanyController {
     @Autowired
     private CompanyRepository companyRepository;
 
-    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(method=RequestMethod.GET)
     public List<Company> getAll() {
       return null;
