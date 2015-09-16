@@ -29,6 +29,7 @@ public class CompanyController {
         return null;
     }
 
+    // http://localhost:8088/rest/company/{"companyId":"1","user":"user1","password":"password1"}
     @RequestMapping(method = RequestMethod.GET, value = "/company/{parms}")
     public Company getCompany(@PathVariable String parms) {
         JsonObject obj = (JsonObject) new JsonParser().parse(parms);

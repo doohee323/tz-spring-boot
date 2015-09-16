@@ -12,7 +12,4 @@ public class Book implements Serializable {
     public Book(String bookId) {
         this.bookId = bookId;
     }
-
-    public Book() {
-    }
 }
