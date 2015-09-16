@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import example.domain.Company;
+import example.repository.CompanyRepository;
 @Component("companyService")
 @Transactional
 public class CompanyServiceImpl implements CompanyService {

@@ -1,4 +1,4 @@
-package example.service.company;
+package example.repository;
 
 import org.springframework.data.repository.Repository;
 
