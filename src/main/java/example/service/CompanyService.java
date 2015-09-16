@@ -1,4 +1,4 @@
-package example.service.company;
+package example.service;
 
 import javax.transaction.Transactional;
 
@@ -7,18 +7,14 @@ import org.springframework.stereotype.Component;
 
 import example.domain.Company;
 import example.repository.CompanyRepository;
+
 @Component("companyService")
 @Transactional
-public class CompanyServiceImpl implements CompanyService {
-
-    private final CompanyRepository companyRepository;
+public class CompanyService {
 
     @Autowired
-    public CompanyServiceImpl(CompanyRepository companyRepository) {
-        this.companyRepository = companyRepository;
-    }
+    private CompanyRepository companyRepository;
 
-    @Override
     public Company getCompany(Integer company_id) {
         return this.companyRepository.findByCompanyId(company_id);
     }
