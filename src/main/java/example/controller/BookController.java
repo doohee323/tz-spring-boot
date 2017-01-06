@@ -13,7 +13,7 @@ import example.domain.Book;
 import example.repository.BookRepository;
 
 @RestController
-@RequestMapping(value = "/rest")
+@RequestMapping(value = "/")
 public class BookController {
 
     @Autowired

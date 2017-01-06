@@ -18,7 +18,7 @@ import example.domain.Company;
 import example.repository.CompanyRepository;
 
 @RestController
-@RequestMapping(value = "/rest")
+@RequestMapping(value = "/")
 public class CompanyController {
 
     @Autowired

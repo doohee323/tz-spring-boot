@@ -61,3 +61,11 @@ You can run like this,
 	http://localhost:8088/rest/book/{"bookId":"1","bookName":"bookName1","user":"user1","password":"password1"}
 	
 ```
+
+# Swagger
+```
+	http://localhost:8088/v2/api-docs
+	
+	http://localhost:8088/swagger-ui.html
+
+```
