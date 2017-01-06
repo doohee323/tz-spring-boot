@@ -27,7 +27,7 @@
 ## LOGGING
 #logging.path=/var/log
 #logging.file=myapp.log
-#logging.config=logback.xml # location of config file (default classpath:logback.xml for logback)
+logging.config= logback.xml # location of config file (default classpath:logback.xml for logback)
 #logging.level.*= # levels for loggers, e.g. "logging.level.org.springframework=DEBUG" (TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF)
 #
 ## IDENTITY (ContextIdApplicationContextInitializer)
@@ -108,7 +108,7 @@ server.port=8088
 #spring.http.gzip.buffer-size= # size of the output buffer in bytes
 #spring.http.gzip.deflate-compression-level= # the level used for deflate compression (0-9)
 #spring.http.gzip.deflate-no-wrap= # noWrap setting for deflate compression (true or false)
-#spring.http.gzip.enabled=false # enable gzip filter support
+#spring.http.gzip.enabled=true # enable gzip filter support
 #spring.http.gzip.excluded-agents= # comma-separated list of user agents to exclude from compression
 #spring.http.gzip.exclude-agent-patterns= # comma-separated list of regular expression patterns to control user agents excluded from compression
 #spring.http.gzip.exclude-paths= # comma-separated list of paths to exclude from compression
@@ -232,12 +232,11 @@ security.sessions=stateless
 security.ignored=false
 #
 # DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
-#spring.datasource.url=jdbc:h2:mem:AZ;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-spring.datasource.url=jdbc:hsqldb:file:./testedb
-spring.datasource.username=sa
+spring.datasource.url=jdbc:mysql://localhost:3306/3crowd
+spring.datasource.username=rule_loader
 spring.datasource.password=
-spring.datasource.driverClassName=org.hsqldb.jdbcDriver
-#spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.database=mysql
+spring.jpa.show-sql=true
 
 #spring.datasource.name= # name of the data source
 #spring.datasource.initialize=true # populate using data.sql
@@ -282,16 +281,12 @@ spring.datasource.driverClassName=org.hsqldb.jdbcDriver
 ## JPA (JpaBaseConfiguration, HibernateJpaAutoConfiguration)
 #spring.jpa.properties.*= # properties to set on the JPA connection
 #spring.jpa.open-in-view=true
-spring.jpa.hibernate.naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
-spring.jpa.database=HSQL
-spring.jpa.show-sql: true
-
+#spring.jpa.show-sql=true
 #spring.jpa.database-platform=org.hibernate.dialect.MySQL5Dialect
 #spring.jpa.database=mysql
 #spring.jpa.generate-ddl=false
 #spring.jpa.hibernate.naming-strategy=org.hibernate.cfg.EJB3NamingStrategy
-spring.jpa.hibernate.ddl-auto=create
-#spring.jpa.hibernate.ddl-auto=false
+#spring.jpa.hibernate.ddl-auto=none
 #spring.data.jpa.repositories.enabled=true
 
 ## JTA (JtaAutoConfiguration)
@@ -417,17 +412,17 @@ spring.jmx.enabled=true
 #
 # REDIS (RedisProperties)
 # database name
-#spring.redis.database=0 # Database index used by the connection factory.
-#spring.redis.host=localhost
+#spring.redis.database=
+spring.redis.host=localhost
 #spring.redis.password= # server password
-#spring.redis.port=6379
-#spring.redis.pool.max-idle=8
-#spring.redis.pool.min-idle=0
-#spring.redis.pool.max-active=8
-#spring.redis.pool.max-wait=-1
+spring.redis.port=6379
+spring.redis.pool.max-idle=8
+spring.redis.pool.min-idle=0
+spring.redis.pool.max-active=8
+spring.redis.pool.max-wait=-1
 #spring.redis.sentinel.master= # name of Redis server
 #spring.redis.sentinel.nodes= # comma-separated list of host:port pairs
-
+#
 ## ACTIVEMQ (ActiveMQProperties)
 #spring.activemq.broker-url=tcp://localhost:61616 # connection URL
 #spring.activemq.user=

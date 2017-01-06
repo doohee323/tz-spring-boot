@@ -5,7 +5,7 @@
   <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <prudent>true</prudent>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <fileNamePattern>/Users/dhong/workspace/tz-spring-boot/initial/%d{yyyy-MM-dd}.log
+      <fileNamePattern>logs/%d{yyyy-MM-dd}.log
       </fileNamePattern>
       <maxHistory>72</maxHistory>
     </rollingPolicy>
@@ -16,14 +16,14 @@
 
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
-      <pattern>[[%coloredLevel %logger{15}]] - %message%n%xException{5}</pattern>
+      <pattern>[[%logger{15}]] - %message%n%xException{5}</pattern>
     </encoder>
   </appender>
 
   <appender name="Stats" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <prudent>true</prudent>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <fileNamePattern>/Users/dhong/workspace/tz-spring-boot/initial/stats-%d{yyyy-MM-dd}.log
+      <fileNamePattern>logs/stats-%d{yyyy-MM-dd}.log
       </fileNamePattern>
     </rollingPolicy>
     <encoder>
@@ -31,9 +31,9 @@
     </encoder>
   </appender>
 
-  <logger name="com.threecrowd" level="DEBUG" />
+  <logger name="example" level="DEBUG" />
 
-  <logger name="com.threecrowd.rulesloader.jetty.servlet" level="INFO" additivity="false">
+  <logger name="example.controller" level="DEBUG" additivity="false">
     <appender-ref ref="Stats" />
   </logger>
 

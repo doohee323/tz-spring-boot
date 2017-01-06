@@ -35,6 +35,9 @@ public class CompanyController {
         JsonObject obj = (JsonObject) new JsonParser().parse(parms);
         int companyId = Integer.parseInt(obj.get("companyId").getAsString());
         Company company = companyRepository.findByCompanyId(companyId);
+        if(company == null) {
+        	company = new Company();
+        }
         return company;
     }
 

@@ -29,6 +29,9 @@ public class BookController {
         bookRepository.save(book);
 
         book = bookRepository.findById(book.bookId);
+        if(book == null) {
+        	book = new Book();
+        }
         return book;
     }
 
