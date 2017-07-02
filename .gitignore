@@ -7,3 +7,4 @@
 .settings
 /logs/
 /testedb*
+.DS_Store

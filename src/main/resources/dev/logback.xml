@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  
+jdbc.sqlonly    : Logs only SQL
+jdbc.sqltiming  : Logs the SQL, post-execution, including timing execution statistics
+jdbc.audit      : Logs ALL JDBC calls except for ResultSets
+jdbc.resultset  : all calls to ResultSet objects are logged
+jdbc.connection : Logs connection open and close events
+-->
+<configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+  <property resource="config/application.properties" />
+  
+  <timestamp key="bySecond" datePattern="yyyyMMddHH" />
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <prudent>true</prudent>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${log.path}logs/%d{yyyy-MM-dd}.log
+      </fileNamePattern>
+      <maxHistory>${log.maxHistory}</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>[[%d{yyyy-MM-dd HH:mm:ss.SSS}]] - %msg%n</pattern>
+    </encoder>
+  </appender>
+    
+  <!-- jdbc -->
+<!--   <logger name="jdbc" level="OFF"/> -->
+  
+<!--   <logger name="jdbc.sqlonly" level="DEBUG" additivity="false">> -->
+<!--     <appender-ref ref="FILE" /> -->
+<!--   </logger>   -->
+  
+<!--   <logger name="jdbc.resultsettable" level="DEBUG" additivity="false">>  -->
+<!--     <appender-ref ref="FILE" /> -->
+<!--   </logger>   -->
+  <!-- jdbc -->
+  
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>[[%logger{15}]] - %message%n%xException{5}</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="com.tz" level="DEBUG" />
+
+   <appender name="TransferStats" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <prudent>true</prudent>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${log.path}logs/stats-transfer-%d{yyyy-MM-dd}.log
+      </fileNamePattern>
+      <maxHistory>${log.maxHistory}</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="com.tz.basis.user.dao.UserActionDAO" level="DEBUG" additivity="false">
+    <appender-ref ref="TransferStats" />
+  </logger>
+ 
+  <logger name="com.tz.basis.user.dao.UserInformationDAO" level="DEBUG" additivity="false">
+    <appender-ref ref="TransferStats" />
+  </logger>
+
+  <logger name="com.tz.web.transfer.dao.TransferDataDAO" level="DEBUG" additivity="false">
+    <appender-ref ref="TransferStats" />
+  </logger> 
+  
+  <logger name="com.tz.extend.transfer.cti.filter.CtiLogFilter" level="INFO" additivity="false">
+    <appender-ref ref="TransferStats" />
+  </logger>   
+  
+  <appender name="Query" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <prudent>true</prudent>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${log.path}logs/query-%d{yyyy-MM-dd}.log
+      </fileNamePattern>
+      <maxHistory>${log.maxHistory}</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+  </appender>  
+  
+  <logger name="org.hibernate.type" level="DEBUG" additivity="false">
+    <appender-ref ref="Query" />
+  </logger>
+  <logger name="org.hibernate" level="DEBUG" additivity="false">
+    <appender-ref ref="Query" />
+  </logger>
+
+	<!-- Off these ones as they are annoying, and anyway we manage configuration 
+		ourself -->
+  <logger name="com.avaje.ebean.config.PropertyMapLoader" level="OFF" />
+  <logger name="com.avaje.ebeaninternal.server.core.XmlConfigLoader" level="OFF" />
+  <logger name="com.avaje.ebeaninternal.server.lib.BackgroundThread" level="OFF" />
+  <logger name="com.gargoylesoftware.htmlunit.javascript" level="OFF" />
+
+  <root level="DEBUG">
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="FILE" />
+  </root>  
+  
+</configuration>
+

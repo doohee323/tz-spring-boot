@@ -18,7 +18,7 @@ You can run like this,
 ```
 	1. in eclipse debug
 		- Project: tz-spring-boot
-		- Main class: example.Application
+		- Main class: com.example.Application
 		- Program arguments: --spring.profiles.active=local
 	
 	2. in eclipse
