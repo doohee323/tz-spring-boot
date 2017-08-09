@@ -102,7 +102,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			patterns = new String[] { "/swagger-ui.html", "/v2/api-docs", "/webjars/springfox-swagger-ui/**",
 					"/swagger-resources/**", "/index.html", "/tzUI/**", "/changeLocale", "/logout",
 					"/authenticate", "/resources/**", "/", "/login_process/user/insert",
-					"/login_process/**", "/favicon.ico", 
+					"/login_process/**", "/favicon.ico", "/home/**", 
 					"/bower_components/**"};
 		}
 
