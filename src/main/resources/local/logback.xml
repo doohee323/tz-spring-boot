@@ -56,21 +56,9 @@ jdbc.connection : Logs connection open and close events
     </encoder>
   </appender>
 
-  <logger name="com.tz.basis.user.dao.UserActionDAO" level="DEBUG" additivity="false">
+  <logger name="com.tz.extend.web.HomeController" level="DEBUG" additivity="false">
     <appender-ref ref="TransferStats" />
   </logger>
- 
-  <logger name="com.tz.basis.user.dao.UserInformationDAO" level="DEBUG" additivity="false">
-    <appender-ref ref="TransferStats" />
-  </logger>
-
-  <logger name="com.tz.web.transfer.dao.TransferDataDAO" level="DEBUG" additivity="false">
-    <appender-ref ref="TransferStats" />
-  </logger> 
-  
-  <logger name="com.tz.extend.transfer.cti.filter.CtiLogFilter" level="INFO" additivity="false">
-    <appender-ref ref="TransferStats" />
-  </logger>   
   
   <appender name="Query" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <prudent>true</prudent>
