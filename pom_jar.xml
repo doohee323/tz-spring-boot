@@ -48,6 +48,7 @@
 		<connector.mysql-version>6.0.5</connector.mysql-version>
 		<org.springframework.security-version>4.2.1.RELEASE</org.springframework.security-version>
 		<failOnMissingWebXml>false</failOnMissingWebXml>
+		<maven.test.skip>true</maven.test.skip>
 		<env>dev</env>
 		<beanstalk.applicationName>TzDev</beanstalk.applicationName>
 		<beanstalker.region>us-west-2</beanstalker.region>

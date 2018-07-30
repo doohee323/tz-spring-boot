@@ -31,7 +31,7 @@ You can run like this,
 	4. run prod mode
 		mvn spring-boot:run
 		or
-		java -jar target/tz-spring-boot-1.0-SNAPSHOT.jar --spring.profiles.active=local
+		java -jar target/tz-1.0.0-SNAPSHOT.jar --spring.profiles.active=local
 ```
 
 # Configuration
