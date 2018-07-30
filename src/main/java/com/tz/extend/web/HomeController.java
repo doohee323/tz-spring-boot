@@ -57,7 +57,6 @@ public class HomeController {
 	@RequestMapping(value = "/", method = { RequestMethod.GET, RequestMethod.POST })
 	public String index(Locale locale, Model model, HttpServletRequest request) {
 		try {
-			logger.debug("==== uiType:" + env.getProperty("uiType"));
 			Object object = SecurityContextHolder.getContext().getAuthentication();
 			if (object == null) {
 				if (env.getProperty("uiType").equalsIgnoreCase("angular")) {
@@ -94,6 +93,8 @@ public class HomeController {
 				: request.getHeader("CloudFront-Viewer-Country");
 		json.addProperty("viewerCountry", viewerCountry);
 
+		logger.debug(json.toString());
+		
 		return json.toString();
 	}	
 
